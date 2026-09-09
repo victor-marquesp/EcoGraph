@@ -1,0 +1,16 @@
+{
+    "name": "victor-marquesp/eco-graph",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "VictorMarquesp\\EcoGraph\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "victor-marquesp",
+            "email": "victor.pecine.marquesp@gmail.com"
+        }
+    ],
+    "require": {}
+}
