@@ -3,8 +3,8 @@
 require 'vendor/autoload.php';
 
 use App\Command\GreetCommand;
+use App\Command\SpeciesCommand;
 use App\Repositories\SpeciesRepository;
-
 use Symfony\Component\Console\Application;
 
 // Database Setup
@@ -27,7 +27,14 @@ $speciesRepository = new SpeciesRepository($pdo);
 // Symfony Console Setup
 
 $symfConsoleApp = new Application('EcoGraph');
+
 $symfConsoleApp->addCommand(new GreetCommand());
+
+$speciesCommands = new SpeciesCommand($speciesRepository);
+$symfConsoleApp->addCommand($speciesCommands->findAll(...));
+$symfConsoleApp->addCommand($speciesCommands->findById(...));
+$symfConsoleApp->addCommand($speciesCommands->findByName(...));
+$symfConsoleApp->addCommand($speciesCommands->findByScientificName(...));
 
 // Start 
 

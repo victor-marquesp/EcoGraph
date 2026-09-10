@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Exceptions\SpeciesNotFoundException;
 use App\Models\Species;
 use PDO;
 
@@ -33,6 +34,10 @@ class SpeciesRepository {
 
         $species = $query->fetch(PDO::FETCH_ASSOC);
 
+        if($species === false) {
+            throw new SpeciesNotFoundException('Species not found!');
+        }
+
         return Species::fromArray($species);
     }
 
@@ -54,12 +59,16 @@ class SpeciesRepository {
 
     public function getByScientificName(string $scientificName) : Species {
 
-        $query = $this->connection->prepare('SELECT * FROM species WHERE scientificName = :scientificName');
+        $query = $this->connection->prepare('SELECT * FROM species WHERE scientific_name = :scientificName');
         $query->execute([
             'scientificName' => $scientificName
         ]);
 
         $species = $query->fetch(PDO::FETCH_ASSOC);
+
+        if($species === false) {
+            throw new SpeciesNotFoundException('Species not found!');
+        }
 
         return Species::fromArray($species);
     }
