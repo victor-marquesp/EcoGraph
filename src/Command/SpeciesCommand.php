@@ -52,7 +52,7 @@ class SpeciesCommand {
 
     #[AsCommand(
         name: 'species:name',
-        description: 'finds all species with the argument name'
+        description: 'finds all species with the provided name'
     )]
     public function findByName(#[Argument('The species Name')] string $name, OutputInterface $output) : int {
 
@@ -100,10 +100,10 @@ class SpeciesCommand {
         readline('...');
     }
 
-    private function displaySpeciesList(array $speciesList, OutputInterface $output) {
+    private function displaySpeciesList(array $speciesList, OutputInterface $output) : void {
 
         $output->writeln('---------------');
-        $output->writeln('ALL SPECIES');
+        $output->writeln('SPECIES');
         $output->writeln('---------------');
 
         foreach($speciesList as $species) {
@@ -113,7 +113,7 @@ class SpeciesCommand {
         readline('...');
     }
 
-    private function failure(string $message, OutputInterface $output) {
+    private function failure(string $message, OutputInterface $output) : void {
 
         $output->writeln('---------------');
         $output->writeln('Oops: ' .$message);
