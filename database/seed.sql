@@ -6,5 +6,5 @@ INSERT INTO species (name, scientific_name, description) VALUES
 ('Anêmona-do-mar', 'Heteractis magnifica', 'Invertebrado marinho munido de tentáculos com células urticantes.');
 
 INSERT INTO interspecific_interactions (speciesA_id, speciesB_id, type, description) VALUES
-(1, 2, 'Predação', 'O leão (id 1) caça a zebra (id 2) para alimentação.'),
-(3, 4, 'Mutualismo', 'O peixe-palhaço (id 3) obtém proteção na anêmona (id 4) e limpa seus tentáculos.');
+(1, 2, 'Predation', 'O leão (id 1) caça a zebra (id 2) para alimentação.'),
+(3, 4, 'Mutualism', 'O peixe-palhaço (id 3) obtém proteção na anêmona (id 4) e limpa seus tentáculos.');

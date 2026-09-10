@@ -22,5 +22,5 @@ CREATE TABLE interspecific_interactions (
 
     PRIMARY KEY (speciesA_id, speciesB_id),
 
-    CHECK(speciesA_id < speciesB_id)
+    CHECK(speciesA_id > speciesB_id)
 );

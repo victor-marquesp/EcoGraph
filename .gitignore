@@ -1,0 +1,4 @@
+/vendor
+/database/test_seed.sql
+/database/database.sqlite
+/fixer
