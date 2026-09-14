@@ -52,4 +52,10 @@ class InterspecificInteraction {
             description: $data['description'] ?? null
         );
     }
+
+    public function toEdgeProperties() : array {
+        return [
+            'description' => $this->description
+        ];
+    }
 }

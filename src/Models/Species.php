@@ -82,4 +82,12 @@ class Species {
             description: $data['description'] ?? null
         );  
     }
+
+    public function toNodeProperties() : array {
+        return [
+            'name' => $this->name,
+            'scientific_name' => $this->scientificName,
+            'description' => $this->description
+        ];
+    }
 }
