@@ -30,4 +30,49 @@ class Graph {
 
     }
 
+    public function getNode(int $nodeId) : Node {
+        return $this->nodes[$nodeId];
+    }
+
+    public function getEdge(int $edgeId) : Edge {
+        return $this->edges[$edgeId];
+    }
+
+    public function nodeCount() : int {
+        return count($this->nodes);
+    }
+
+    public function edgeCount() : int {
+        return count($this->edges);
+    }
+
+    public function hasEdge(int $sourceId, int $targetId) : Edge | bool {
+
+        $edgeId = $this->representation->hasEdge($sourceId, $targetId);
+
+        if($edgeId) {  
+            return $this->edges[$edgeId];
+        }
+
+        return false;
+    }
+
+    /** @return Node[] */
+    public function neighbors(int $nodeId) : array {
+
+        $edgeIDs = $this->representation->neighbors($nodeId);
+
+        $edges = [];
+        foreach($edgeIDs as $id) {
+            $edges[] = $this->edges[$id];
+        }
+
+        return $edges;
+    }
+
+    public function degree(int $nodeId) : int {
+        return $this->representation->degree($nodeId);
+    }
+
+
 }
