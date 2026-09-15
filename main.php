@@ -48,6 +48,10 @@ $symfConsoleApp->addCommand($interactionCommands->findBySpecies(...));
 
 $graphCommands = new GraphCommand($graphBuilder, $speciesRepository, $interactionRepository);
 $symfConsoleApp->addCommand($graphCommands->buildGraph(...));
+$symfConsoleApp->addCommand($graphCommands->findNeighbors(...));
+$symfConsoleApp->addCommand($graphCommands->findDegree(...));
+$symfConsoleApp->addCommand($graphCommands->findEdge(...));
+
 // Start 
 
 $symfConsoleApp->run();

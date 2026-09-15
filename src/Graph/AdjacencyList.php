@@ -27,8 +27,8 @@ class AdjacencyList implements GraphRepresentation {
     #[Override]
     public function hasEdge(int $sourceId, int $targetId) : int | bool {
 
-        $sourceEdges = $this->adjacency[$sourceId];
-        $targetEdges = $this->adjacency[$targetId];
+        $sourceEdges = $this->adjacency[$sourceId] ?? [];
+        $targetEdges = $this->adjacency[$targetId] ?? [];
 
         foreach ($sourceEdges as $sourceEdge) {
 
@@ -46,7 +46,7 @@ class AdjacencyList implements GraphRepresentation {
     #[Override]
     public function neighbors(int $nodeId) : array {
 
-        return $this->adjacency[$nodeId];
+        return $this->adjacency[$nodeId] ?? [];
 
     }
 
