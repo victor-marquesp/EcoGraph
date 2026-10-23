@@ -13,6 +13,7 @@ class Edge {
     
     public private(set) Type $type;
 
+    /** @var array<string, mixed> */
     public private(set) array $properties;
 
     public function __construct(int $id, Node $source, Node $target, Type $type, array $properties) {

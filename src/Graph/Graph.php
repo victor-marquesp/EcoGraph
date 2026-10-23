@@ -74,5 +74,4 @@ class Graph {
         return $this->representation->degree($nodeId);
     }
 
-
 }

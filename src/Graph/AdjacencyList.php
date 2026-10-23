@@ -30,14 +30,10 @@ class AdjacencyList implements GraphRepresentation {
         $sourceEdges = $this->adjacency[$sourceId] ?? [];
         $targetEdges = $this->adjacency[$targetId] ?? [];
 
-        foreach ($sourceEdges as $sourceEdge) {
-
-            foreach($targetEdges as $targetEdge) {
-                if($sourceEdge === $targetEdge) {
-                    return $sourceEdge;
-                }
+        foreach ($sourceEdges as $edgeId) {
+            if (in_array($edgeId, $targetEdges, true)) {
+                return $edgeId;
             }
-
         }
 
         return false;
